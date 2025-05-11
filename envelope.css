@@ -1,0 +1,283 @@
+body {
+	margin: 0;
+	transition: background-color 0.3s ease;
+}
+
+body.active {
+	background-color: #F49BAB;
+}
+
+.envelope-container {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	left: 50%;
+	top: 50%;
+	opacity: 0;
+	animation: dudu 3s ease 5.8s 1 forwards;
+	transform-origin: 0 0;
+	z-index: 1;
+}
+
+.envelope {
+	width: 1000px;
+	height: 800px;
+	overflow: hidden;
+	position: relative;
+	animation: tremble 1s infinite;
+	margin: auto;
+}
+
+h1,
+p {
+	font-family: "Quicksand";
+}
+
+h1 {
+	font-weight: 200;
+}
+
+.instruction {
+	position: absolute;
+	font-size: 1.6rem;
+	color: rgba(255, 0, 0, 0.554);
+	top: 36%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.heart {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	text-align: center;
+	transform: translate(-50%, -50%);
+	transition: transform 2s;
+	z-index: 1;
+	cursor: pointer;
+}
+
+.heart>img {
+	width: 100px;
+	height: auto;
+	animation: beat 2s ease-in-out infinite;
+}
+
+.message {
+	padding: 25px;
+	background-color: #eee;
+	font-family: "Quicksand", serif;
+	font-size: clamp(16px, 10vw, 17px);
+	text-align: justify;
+	line-height: 1.4em;
+	width: 80%;
+	max-width: 550px;
+	height: 80%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -52%);
+	z-index: 0;
+	animation: openmsg 2s linear paused forwards;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+	border-radius: 5px;
+	overflow: scroll;
+	scrollbar-width: none;
+}
+
+.message .sincere {
+	text-align: left;
+	font-family: "Cinzel", serif;
+	font-size: 16px;
+	line-height: 1.2em;
+}
+
+.message .sincere p {
+	margin: 0;
+}
+
+/* ANIMATION */
+
+@keyframes beat {
+	0% {
+		width: 100px;
+	}
+
+	25% {
+		width: 110px;
+	}
+
+	50% {
+		width: 120px;
+	}
+
+	75% {
+		width: 110px;
+	}
+
+	100% {
+		width: 100px;
+	}
+}
+
+@keyframes openmsg {
+	0% {
+		height: 0px;
+		padding: 0px 20px;
+	}
+
+	100% {
+		height: 75%;
+		padding: 20px 20px;
+	}
+}
+
+@keyframes heartMove {
+	0% {
+		top: 50%;
+	}
+
+	100% {
+		top: 85%;
+		transform: translate(-50%, 0);
+	}
+}
+
+@keyframes dudu {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.openNor {
+	animation-direction: normal;
+	animation-play-state: running;
+}
+
+.closeNor {
+	animation-direction: reverse;
+	animation-play-state: running;
+}
+
+.no-anim {
+	animation: none;
+}
+
+.closed {
+	height: 0px;
+	padding: 0px 20px;
+}
+
+.bottom {
+	bottom: 5px;
+}
+
+.openHer {
+	animation: heartMove 2s linear forwards;
+}
+
+.closeHer {
+	animation: heartMove 2s linear reverse forwards;
+}
+
+.beating>img {
+	animation: beat 2s ease-in-out infinite;
+}
+
+.openedHer {
+	top: 85%;
+	transform: translate(-50%, 0);
+}
+
+/* Light Mode */
+body {
+    background-color: #F7CFD8;
+
+}
+
+/* Dark Mode */
+body.dark-mode {
+	background-color: #393E46;
+	color: #ffffff;
+}
+
+/* Theme and Music Controls */
+.theme-music-controls {
+	position: fixed;
+	top: 20px;
+	right: 25px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+
+.theme-music-controls button {
+	background-color: #f0f0f0;
+	border: none;
+	font-size: 20px;
+	padding: 10px;
+	border-radius: 50%;
+	cursor: pointer;
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+	transition: all 0.2s ease;
+}
+
+.theme-music-controls button:hover {
+	transform: scale(1.1);
+	background-color: #d0d0d0;
+}
+
+body.dark-mode .instruction {
+	color: #F6F5F2;
+}
+
+body.dark-mode .message {
+	color: #FF90BB;
+}
+
+body.dark-mode .message h1 {
+	color: #FF90BB;
+}
+
+body.dark-mode .message p span {
+	color: #FF90BB;
+}
+.heart-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none; /* Đảm bảo không cản trở tương tác */
+	overflow: hidden;
+	z-index: 1000;
+}
+
+.flying-heart {
+    position: absolute;
+    top: -50px; /* Bắt đầu từ trên màn hình */
+    width: 20px;
+    height: 20px;
+    background-color: #FF90BB;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    animation: floatDown 4s ease-in-out forwards;
+    opacity: 1;
+    z-index: 1000;
+    pointer-events: none; /* Đảm bảo không cản trở tương tác */
+}
+
+@keyframes floatDown {
+    0% {
+        transform: translateY(0); /* Bắt đầu từ trên */
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(150vh); /* Rơi xuống dưới */
+        opacity: 0;
+    }
+}
